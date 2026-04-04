@@ -1,0 +1,10 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+.spaces{
+    display: flex;
+    align-items: center;
+    // gap: 56px;
+
+
+}

@@ -1,0 +1,7 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+.access-container{
+    display: flex;
+    gap: 40px;
+}
