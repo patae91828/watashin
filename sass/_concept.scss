@@ -1,0 +1,61 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+
+.concept-content {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+
+    p {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        font-size: $fs-base;
+    }
+
+    img {
+        flex: 2;
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+    }
+}
+
+
+// =======================
+// responsive
+// =======================
+@include mq(tab) {
+    .concept-content {
+        gap: 24px;
+
+        p {
+            font-size: 2rem;
+            
+            .br1,.br3 {
+                display: none;
+            }
+        }
+    }
+}
+
+@include mq(sp) {
+    .concept-content {
+        flex-direction: column;
+        gap: 24px;
+
+        p {
+            width: 100%;
+            font-size: 1.8rem;
+            line-height: 2;
+            text-align: center;
+            display: inline-block;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+}

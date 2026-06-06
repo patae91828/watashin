@@ -1,0 +1,14 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+.mainvisual{
+        display: flex;
+        .logo{
+            width: 30%;
+        }
+        .visual{
+            width: 70%;
+        }
+}
+
+

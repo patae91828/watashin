@@ -1,0 +1,133 @@
+@use "mixin" as *;
+@use 'variables' as *;
+
+.opening {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:
+        linear-gradient(rgba(10, 0, 0, 0.82), rgba(10, 0, 0, 0.9)),
+        url("../img/background.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    animation: openingFadeOut 1.6s ease 4.8s forwards;
+    
+
+    &-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        text-align: center;
+    }
+
+    &-logo {
+        width: 220px;
+        opacity: 0;
+        filter: blur(14px);
+        transform: translateY(20px) scale(0.96);
+        animation: openingLogoIn 2.2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+    }
+
+    &-line {
+        width: 0;
+        height: 3px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(212, 175, 55, 0.75),
+            rgba(212, 175, 55, 1),
+            rgba(212, 175, 55, 0.75),
+            transparent
+        );
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.45);
+        animation: openingLineIn 1.6s ease 1.8s forwards;
+    }
+
+    &-copy {
+        margin: 0;
+        font-size: 1.6rem;
+        letter-spacing: 0.15em;
+        color: $gold;
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(10px);
+        animation: openingCopyIn 1.8s ease 2.4s forwards;
+    }
+}
+
+body.is-opening {
+    overflow: hidden;
+}
+
+@keyframes openingLogoIn {
+    0% {
+        opacity: 0;
+        filter: blur(14px);
+        transform: translateY(20px) scale(0.96);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes openingLineIn {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    100% {
+        width: 220px;
+        opacity: 1;
+    }
+}
+
+@keyframes openingCopyIn {
+    0% {
+        opacity: 0;
+        filter: blur(8px);
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 0.85;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+
+@keyframes openingFadeOut {
+    0% {
+        opacity: 1;
+        visibility: visible;
+    }
+    99% {
+        opacity: 0;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+
+
+
+// =======================
+// responsive
+// =======================
+@include mq(sp) {
+    .opening-logo {
+        width: 180px;
+    }
+
+    .opening-copy {
+        font-size: 1.3rem;
+    }
+}

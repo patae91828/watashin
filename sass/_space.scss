@@ -1,0 +1,75 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+
+
+.space{
+    .space-container{
+        display: grid;
+        gap: 56px;
+        font-size: $fs-base;
+    
+        .spaces{
+            display: flex;
+            align-items: center;
+            gap: 56px;
+
+            img{
+                border-radius: 12px;
+            }
+            
+            .text h2{
+                margin-bottom: 40px;
+            }
+        }
+    
+    }
+
+}
+
+
+// =======================
+// responsive
+// =======================
+@include mq(tab) {
+    .space {
+        .space-container {
+            font-size: 2rem;
+
+            .spaces {
+                gap: 32px;
+            }
+        }
+    }
+}
+
+@include mq(sp) {
+    .space {
+        .space-container {
+            gap: 48px;
+            font-size: 1.8rem;
+
+            .spaces {
+                flex-direction: column;
+                gap: 24px;
+
+                img {
+                    order: 2;
+                }
+
+                .text {
+                    order: 1;
+
+                    h2 {
+                        margin-bottom: 24px;
+                        font-size: 2.4rem;
+                    }
+
+                    p {
+                        line-height: 1.8;
+                    }
+                }
+            }
+        }
+    }
+}
