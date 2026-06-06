@@ -1,0 +1,46 @@
+@use 'mixin' as *;
+@use 'variables' as *;
+
+
+.drink{
+    background-image:url("../img/drink_back.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    .menu{
+        display: flex;
+        gap: 56px;
+        text-align: center;
+        font-size: $fs-small;
+    
+        .drink-menu{
+            width: 23%;
+            text-align: center;
+            padding: 0 20px;
+    
+            img{
+                margin: 0 auto;
+                border-radius: 12px;
+            }
+        }
+    }
+}
+
+
+// =======================
+// responsive
+// =======================
+@include mq(sp) {
+    .drink {
+        background-attachment: scroll;
+
+        .menu {
+            font-size: 1.6rem;
+
+            .drink-menu {
+                padding: 0 16px;
+            }
+        }
+    }
+}
